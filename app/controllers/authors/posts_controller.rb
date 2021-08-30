@@ -1,16 +1,13 @@
 module Authors
   class PostsController < AuthorsController
-    before_action :set_post, only: [:show, :edit, :update, :destroy]
+    before_action :set_post, only: [:edit, :update, :destroy]
 
     # GET /posts
     def index
       @posts = current_author.posts
     end
 
-    # GET /posts/1
-    def show
-    end
-
+   
     # GET /posts/new
     def new
       @post = current_author.posts.build
@@ -34,7 +31,7 @@ module Authors
     # PATCH/PUT /posts/1
     def update
       if @post.update(post_params)
-        redirect_to @post, notice: 'Post was successfully updated.'
+        render :edit, notice: 'Post was successfully updated.'
       else
         render :edit
       end

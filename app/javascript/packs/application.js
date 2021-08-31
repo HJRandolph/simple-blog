@@ -14,3 +14,24 @@ ActiveStorage.start()
 
 require("trix")
 require("@rails/actiontext")
+
+import '../stylesheets/application';
+
+document.addEventListener('turbolinks:load', () => {
+    document.addEventListener('click', (e) => {
+        let element = e.target.closest('.paragraph-content');
+        if (!element) return;
+
+        element.classList.add('d-none');
+        element.nextElementSibling.classList.remove('d-none');
+    })
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.matches('.cancel')) return;
+
+        let element = e.target.closest('.paragraph-form');
+
+        element.classList.add('d-none');
+        element.previousElementSibling.classList.remove('d-none');
+    })
+})

@@ -32,7 +32,7 @@ module Authors
     # PATCH/PUT /posts/1
     def update
       if @post.update(post_params)
-        render :edit, notice: 'Post was successfully updated.'
+        redirect_to edit_post_path(@post), notice: 'Post was successfully updated.'
       else
         render :edit
       end
@@ -52,7 +52,7 @@ module Authors
 
       # Only allow a list of trusted parameters through.
       def post_params
-        params.require(:post).permit(:title, :description)
+        params.require(:post).permit(:title, :description, :header_image)
       end
   end
 end

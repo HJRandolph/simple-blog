@@ -1,0 +1,16 @@
+<%= link_to 'Back', posts_path, class: 'btn btn-secondary mb-3' %>
+    <div class="card mb-5">
+    <div class="card-header">
+        <h6 class="card-title mb-0">Editing Post</h6>
+    </div>
+        <div class="card-body">
+        <%= render 'form', post: @post %>
+        </div>
+        <div class="card-footer">
+            <% if @post.published? %>
+                <a href="#" class="btn btn-secondary w-100" data-reflex="click->PublisherReflex#unpublish" data-post-id="<%= @post.id %>">Unpublish</a>
+            <% else %>
+                <a href="#" class="btn btn-dark w-100" data-reflex="click->PublisherReflex#publish" data-post-id="<%= @post.id %>">Publish</a>
+            <% end %>
+        </div>
+    </div>

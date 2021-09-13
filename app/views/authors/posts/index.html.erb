@@ -9,13 +9,19 @@
   <%= link_to edit_post_path(post), class: 'text-decoration-none' do %>
     <div class="card mb-3 post-card">
       <div class="card-body">
+       
+        
+       
        <div class="row">
+        
           <div class='col-md-2'>
+          
             <% if post.header_image.present? %>
               <div class='header-img' style="background-image: url(<%= url_for(post.header_image) %>);"></div>              
             <% end %>
           </div>
           <div class='col-md-10'>
+          
           <% if post.published? %>
                 <span class="badge bg-primary mb-3">
                     Published
@@ -29,10 +35,14 @@
             <p class="text-secondary mb-0"><%= post.description %></p>
             
           </div>        
-        </div>    
+        </div>  
+        <%= link_to post_path(post), method: :delete, class: 'btn btn-danger float-end', data: { confirm: 'Delete Post: are you sure?'} do %><li class="fas fa-times"></li> <% end %>
       </div>
+        
     </div>
+    
   <% end %>
+
 <% end %>
 
 

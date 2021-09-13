@@ -7,7 +7,7 @@ module Authors
     # POST /elements
     def create
       @element = @post.elements.build(element_params)
-
+      
       if @element.save
         notice = nil
       else
@@ -16,11 +16,15 @@ module Authors
 
       redirect_to edit_post_path(@post), notice: notice
     end
-
+    
+    def edit
+      @element = @post.elements.build
+    end
     # PATCH/PUT /elements/1
     def update
       if @element.update(element_params)
-        redirect_to edit_post_path(@element.post), notice: 'Element was successfully updated.'
+         redirect_to edit_post_path(@element.post)
+        
       else
         render :edit
       end

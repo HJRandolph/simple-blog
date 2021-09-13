@@ -48,6 +48,12 @@ document.addEventListener('turbolinks:load', () => {
     })
 
     let el = document.getElementById('elements')
-    Sortable.create(elements, { animation: 150 })
-})
+    Sortable.create(el, { animation: 150 })
+    
+   
+});
+
+
+
+
 import "controllers"

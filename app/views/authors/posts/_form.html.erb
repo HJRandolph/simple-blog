@@ -1,11 +1,11 @@
-<%= form_with(model: post) do |form| %>
+<%= form_with(model: @post) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h6><strong><%= pluralize(post.errors.count, "error") %></strong> prohibited this post from being saved.</h6>
 
       <ul>
         <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li class="warning"><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
@@ -25,8 +25,9 @@
     <%= form.label :header_image %>
     <%= form.file_field :header_image, class: 'form-control' %>
    <div class='mt-1'>
-   Current image:
+   
     <% if post.header_image.present? %>
+    <small>Current image:</small>
       <%= image_tag(post.header_image, width: '100%') %>
       
     <% end %>

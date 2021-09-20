@@ -1,4 +1,11 @@
 .trix-content {
+
+  h2, h3 {
+    font-size: 1.2em;
+    line-height: 1.2;
+    margin: 0;
+    font-weight: bold;
+  }
     .attachment-gallery {
       > action-text-attachment,
       > .attachment {
